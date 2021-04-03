@@ -1,4 +1,4 @@
-import { Collection, query as q } from "faunadb";
+import { query as q } from "faunadb";
 import { NextApiRequest, NextApiResponse } from "next"
 import { getSession } from "next-auth/client";
 import { fauna } from "../../services/fauna";
