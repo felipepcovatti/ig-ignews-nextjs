@@ -7,7 +7,6 @@ import styles from './home.module.scss'
 
 interface HomeProps {
   product: {
-    priceId: string;
     amount: string;
   }
 }
@@ -27,7 +26,7 @@ export default function Home({ product }: HomeProps) {
             Get accesss to all the publications <br />
             <span>for {product.amount} / month</span>
           </p>
-          <SubscribeButton priceId={product.priceId} />
+          <SubscribeButton />
         </section>
         <img src="/images/avatar.svg" alt="Girl coding" />
       </main>
@@ -40,7 +39,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve('price_1IZdMrLNEJnYUbsa7EpIGIlk')
 
   const product = {
-    priceId: price.id,
     amount: new Intl.NumberFormat('en-us', {
       style: 'currency',
       currency: 'USD'
